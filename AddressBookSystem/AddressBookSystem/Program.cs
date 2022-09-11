@@ -9,6 +9,7 @@ namespace AddressBookSystem
             AddressBookRepo repo = new AddressBookRepo();
             AddressBookModel model = new AddressBookModel();
             repo.GetAllEntries();
+            //repo.UpdateContact();
         }
     }
 }

@@ -57,6 +57,35 @@ namespace AddressBookSystem
                 this.connection.Close();
             }
         }
-
+        public void UpdateContact()
+        {
+            try
+            {
+                using (connection)
+                {
+                    //UpdateContact 
+                    string query = "update AddressBook Set PhoneNumber='8865786540' Where FirstName='Niraj';";
+                    SqlCommand command = new SqlCommand(query, connection);
+                    connection.Open();
+                    var result = command.ExecuteNonQuery();
+                    if (result != 0)
+                    {
+                        Console.WriteLine("Contact Updated");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Contact not Updated");
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                this.connection.Close();
+            }
+        }
     }
 }
